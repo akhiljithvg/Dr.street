@@ -2,15 +2,23 @@
   <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="250">
 </p>
 
+<p align="center">
+  <a href="https://drstreet.vercel.app/"><img src="https://img.shields.io/badge/Documentation-Live-brightgreen?style=for-the-badge&logo=vercel" alt="Documentation"></a>
+  <img src="https://img.shields.io/badge/ROS_2-Jazzy-22314E?style=for-the-badge&logo=ros" alt="ROS 2 Jazzy">
+  <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu" alt="Ubuntu 24.04">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv" alt="OpenCV">
+</p>
+
 # Dr.Street Autonomous Robot
 
 A complete, hands-on ROS 2 robotics project for learning autonomous navigation, computer vision, and embedded systems.
 
-This guide is designed for **university students and beginners** and covers everything from system setup to running autonomous lane-following code.
+This guide is designed for **university students and beginners** and covers everything from system setup to running autonomous lane-following code. For the comprehensive operation manual, please visit our [Official Documentation](https://drstreet.vercel.app/).
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [What You'll Learn](#what-youll-learn)
@@ -32,10 +40,24 @@ This guide is designed for **university students and beginners** and covers ever
 
 The Dr.Street project is an **autonomous mobile robot** that:
 
-- **detects red lane markings** using a USB camera and OpenCV (computer vision)
-- **recognizes ArUco junction markers** to decide where to turn
-- **controls motors** via serial communication with an ESP32 microcontroller
-- **demonstrates core robotics concepts**: perception, decision-making, and actuation
+- **Detects red lane markings** using a USB camera and OpenCV (computer vision)
+- **Recognizes ArUco junction markers** to decide where to turn
+- **Controls motors** via serial communication with an ESP32 microcontroller
+- **Demonstrates core robotics concepts**: perception, decision-making, and actuation
+
+### Technology Stack
+
+<p align="center">
+  <a href="https://www.ros.org/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ros/ros-original.svg" height="40" alt="ROS 2" title="ROS 2" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://opencv.org/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" height="40" alt="OpenCV" title="OpenCV" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.python.org/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" height="40" alt="Python" title="Python" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://ubuntu.com/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" height="40" alt="Ubuntu" title="Ubuntu" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.raspberrypi.org/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" height="40" alt="Raspberry Pi" title="Raspberry Pi" /></a>
+</p>
 
 ### Two Approaches to This Project
 
@@ -43,6 +65,16 @@ The Dr.Street project is an **autonomous mobile robot** that:
 2. **ROS 2** (main project) — Professional framework, modular, scalable architecture
 
 We'll learn both!
+
+---
+
+## Simulation Environment
+
+<p align="center">
+  <img src="arena3d4.png" alt="Dr.Street Arena 3D Model" width="80%">
+</p>
+
+The project includes a robust simulation environment to test vision algorithms and autonomy features before deploying to physical hardware.
 
 ---
 
@@ -82,6 +114,7 @@ By completing this project, you will understand:
 
 - Internet connection (for installation)
 - SSH access (if using Raspberry Pi remotely)
+
 ---
 
 ## Hardware Assembly & Wiring
@@ -319,7 +352,8 @@ QR-code-like markers that the robot recognizes to:
 
 ### 2.3 Running the Standalone Script
 
-**Warning:** This script connects directly to the motor hardware. Use in a safe environment!
+> [!WARNING]
+> This script connects directly to the motor hardware. Use in a safe environment!
 
 ```bash
 cd /home/pi/ak_ws/src/ds
@@ -582,8 +616,8 @@ APPROACH_SPEED = 15      # Speed when near junction
 ARUCO_TRIGGER_AREA = 1500 # Pixel area to trigger junction action
 ```
 
-Lower `STEER_GAIN` → smoother, wider turns
-Higher `STEER_GAIN` → sharper, tighter turns
+Lower `STEER_GAIN` → smoother, wider turns  
+Higher `STEER_GAIN` → sharper, tighter turns  
 
 ---
 
@@ -783,5 +817,4 @@ If you have questions or find issues:
 
 ---
 
-**Happy robotics learning! 🤖**
-
+**Happy robotics learning!**
