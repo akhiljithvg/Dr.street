@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="250">
+  <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="450">
 </p>
 
 # Dr.Street Autonomous Robot
