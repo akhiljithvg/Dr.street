@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="250">
+  <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="650">
 </p>
 
 <p align="center">
