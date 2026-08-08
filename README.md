@@ -1,4 +1,4 @@
-# 🦆 Duckie Autonomous Robot
+# 🦆 Dr.Street Autonomous Robot
 
 A complete, hands-on ROS 2 robotics project for learning autonomous navigation, computer vision, and embedded systems.
 
@@ -26,7 +26,7 @@ This guide is designed for **university students and beginners** and covers ever
 
 ## Project Overview
 
-The Duckie project is an **autonomous mobile robot** that:
+The Dr.Street project is an **autonomous mobile robot** that:
 
 - **detects red lane markings** using a USB camera and OpenCV (computer vision)
 - **recognizes ArUco junction markers** to decide where to turn
@@ -82,7 +82,7 @@ By completing this project, you will understand:
 
 ## Hardware Assembly & Wiring
 
-This section covers the physical assembly, connections, and wiring of the Duckie robot. The project supports two primary hardware control architectures:
+This section covers the physical assembly, connections, and wiring of the Dr.Street robot. The project supports two primary hardware control architectures:
 
 *   **Option A: ESP32 Serial Co-Processor (Default / Recommended)**: The Raspberry Pi handles high-level computer vision and ROS 2 processing, sending motor commands over serial UART to an ESP32 microcontroller, which directly controls the motor driver.
 *   **Option B: Direct Raspberry Pi GPIO Control**: The Raspberry Pi controls the motor driver directly via GPIO pins using `gpiozero` (bypassing the ESP32 co-processor).
@@ -174,7 +174,7 @@ void loop() {
 
 ### Option B: Direct Raspberry Pi GPIO Configuration
 
-For a simpler build without an ESP32 co-processor, you can connect the motor driver directly to the Raspberry Pi GPIO headers. The `duckie_motor` ROS 2 package (`motor_node.py`) is preconfigured for this setup using `gpiozero`.
+For a simpler build without an ESP32 co-processor, you can connect the motor driver directly to the Raspberry Pi GPIO headers. The `ds_motor` ROS 2 package (`motor_node.py`) is preconfigured for this setup using `gpiozero`.
 
 #### Pin Mappings (BCM)
 
@@ -318,7 +318,7 @@ QR-code-like markers that the robot recognizes to:
 **Warning:** This script connects directly to the motor hardware. Use in a safe environment!
 
 ```bash
-cd /home/pi/ak_ws/src/duckie
+cd /home/pi/ak_ws/src/ds
 python3 followlaneesp.py
 ```
 
@@ -418,33 +418,33 @@ sudo apt install -y python3-colcon-common-extensions
 ### 4.1 Clone or Navigate to the Repository
 
 ```bash
-cd /home/pi/ak_ws/src/duckie
+cd /home/pi/ak_ws/src/ds
 ```
 
 (Or clone if you don't have it yet):
 
 ```bash
-git clone https://github.com/akhiljithvg/duckie.git
-cd duckie
+git clone https://github.com/akhiljithvg/ds.git
+cd ds
 ```
 
 ### 4.2 Understand the Project Structure
 
 ```
-duckie/
+ds/
 ├── README.md                      # This file
 ├── followlaneesp.py              # Standalone lane-following script
-├── duckie_bringup/               # ROS 2 launch configurations
+├── ds_bringup/               # ROS 2 launch configurations
 │   ├── launch/
 │   │   └── bringup.launch.py     # Main launch file
 │   └── setup.py
-├── duckie_perception/            # Vision & lane detection
-│   ├── duckie_perception/
+├── ds_perception/            # Vision & lane detection
+│   ├── ds_perception/
 │   │   └── followlaneesp_node.py # ROS 2 wrapper around lane following
 │   └── setup.py
-├── duckie_motor/                 # Motor control
-├── duckie_safety/                # Safety watchdog
-└── duckie_simulation/            # Gazebo simulation
+├── ds_motor/                 # Motor control
+├── ds_safety/                # Safety watchdog
+└── ds_simulation/            # Gazebo simulation
 ```
 
 ### 4.3 Source ROS 2 and Build
@@ -456,8 +456,8 @@ source /opt/ros/jazzy/setup.bash
 # Navigate to the workspace root (one level above src/)
 cd /home/pi/ak_ws
 
-# Build the Duckie packages
-colcon build --packages-select duckie_perception duckie_bringup
+# Build the Dr.Street packages
+colcon build --packages-select ds_perception ds_bringup
 
 # Source the build output
 source install/setup.bash
@@ -476,15 +476,15 @@ Sourcing `install/setup.bash`:
 ### 4.5 Verify Build Success
 
 ```bash
-ros2 pkg list | grep duckie
+ros2 pkg list | grep ds
 ```
 
 Should list:
-- `duckie_bringup`
-- `duckie_perception`
-- `duckie_motor`
-- `duckie_safety`
-- `duckie_simulation`
+- `ds_bringup`
+- `ds_perception`
+- `ds_motor`
+- `ds_safety`
+- `ds_simulation`
 
 ---
 
@@ -495,7 +495,7 @@ Should list:
 The recommended way to start all nodes:
 
 ```bash
-ros2 launch duckie_bringup bringup.launch.py
+ros2 launch ds_bringup bringup.launch.py
 ```
 
 This:
@@ -508,7 +508,7 @@ This:
 To run just the perception node (for debugging):
 
 ```bash
-ros2 run duckie_perception followlaneesp_node
+ros2 run ds_perception followlaneesp_node
 ```
 
 ### 5.3 Expected Behavior
@@ -568,7 +568,7 @@ camera → followlaneesp_node → motor_driver → motors
 
 ### Key Parameters (Tunable)
 
-Edit `duckie_perception/duckie_perception/followlaneesp_node.py`:
+Edit `ds_perception/ds_perception/followlaneesp_node.py`:
 
 ```python
 BASE_SPEED = 40          # Motor speed when following lane
@@ -628,7 +628,7 @@ python3 -m serial.tools.list_ports
 source /home/pi/ak_ws/install/setup.bash
 
 # Verify the node exists
-ros2 pkg executables duckie_perception
+ros2 pkg executables ds_perception
 ```
 
 ### Build Errors
@@ -641,7 +641,7 @@ ros2 pkg executables duckie_perception
 sudo apt install -y ros-jazzy-cv-bridge ros-jazzy-launch-ros
 
 # Clean and rebuild
-colcon build --packages-select duckie_perception duckie_bringup --force-cmake-configure
+colcon build --packages-select ds_perception ds_bringup --force-cmake-configure
 ```
 
 ### Motor Not Moving
