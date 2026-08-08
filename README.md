@@ -1,4 +1,8 @@
-# 🦆 Dr.Street Autonomous Robot
+<p align="center">
+  <img src="Dr.Street_Logo_bg_removed.png" alt="Dr.Street Logo" width="250">
+</p>
+
+# Dr.Street Autonomous Robot
 
 A complete, hands-on ROS 2 robotics project for learning autonomous navigation, computer vision, and embedded systems.
 
