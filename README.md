@@ -36,6 +36,10 @@ This guide is designed for **university students and beginners** and covers ever
 
 ---
 
+<p align="center">
+  <img src="drbot.png" alt="Dr.Street Robot" width="650">
+</p>
+
 ## Project Overview
 
 The Dr.Street project is an **autonomous mobile robot** that:
